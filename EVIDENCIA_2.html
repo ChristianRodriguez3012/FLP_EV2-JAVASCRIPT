@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template</title>
+  </head>
+  <body>
+    <script>
+      //NOMBRE: CHRISTIAN RODRIGUEZ
+      //CURSO: FUNDAMENTOS DE LENGUAJES DE PROGRAMACIÓN
+      //TEMA: EVIDENCIA 2 - JAVASCRIPT
+      //FECHA: 30 / 09 / 2022
+      
+      
+      //1. Dado un número n como entrada, el programa debe mostrar la serie de fibonacci de esos N
+      //números. (4 puntos)
+      //input
+      const input = prompt("FIBONACCI - INGRESE EL NÚMERO A CALCULAR:");
+      alert(`Calculando el fibonacci de ${input}`);
+      function CREARFibonacci(number){
+      var fibonacci = [];
+      //fibonacci de 0 y 1
+      fibonacci[0] = 0;
+      fibonacci[1] = 1;
+      //fibonacci
+      for (var i = 2; i < number; i++) {
+        fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
+      }
+      return fibonacci;
+      }
+      //output
+      var f = CREARFibonacci(input);
+      console.log(f);
+
+
+      
+      //2. Dado un numero N, el programa debe mostrar los factores o divisores de N. (4 puntos)
+      //Almacenar resultados
+      const divisores = function (n) {
+              let result = [];
+      //Calculando divisores y regresando resultados
+              for (let i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                  result.push(i);
+                }
+              }
+              result.sort((a, b) => a - b);
+              var set = new Set(result);
+              return set;
+            };        
+      //Output: se debe determinar los números que se desean calcular dentro del paréntesis
+            console.log("DIVISORES DE N:");
+            console.log(divisores(30));
+            console.log(divisores(12));
+            console.log(divisores(42));
+            console.log(divisores(11));
+            console.log(divisores(10));
+            console.log(divisores(20));
+            console.log(divisores(137));
+            console.log(divisores(101));      
+
+
+
+      //3. Dado un numero N, el programa debe mostrar si es primo o no. (4 puntos)
+      //Determinar si número es primo
+      const VerSiEsPrimo = numero => {
+        // Casos excepcionales
+        if (numero == 0 || numero == 1 || numero == 4) return false;
+        for (let x = 2; x < numero / 2; x++) {
+          if (numero % x == 0) return false;
+        }
+        // SI NO SE LOGRA DIVIDIR ANTERIORMENTE, SE CONCLUYE QUE SÍ ES PRIMO
+        return true;
+      }
+      // SE DETERMINA EL LISTADO DE NÚMEROS A EVALUAR
+      const ListadoDeNumeros = [30, 4, 1, 42, 151, 500, 179, 13, 15, 12 ,20, 11, 301242];
+      // output
+      ListadoDeNumeros.forEach(numero => {
+        console.log("Determinando si el número es primo:", numero, VerSiEsPrimo(numero));
+      });
+
+
+
+      //4. Dado un numero n, el programa debe mostrar el factorial. Implemente la version iterativa y la
+      //recursiva. (5 puntos)      
+      //Implementando Iterativo
+      const F_Iterativo = function (n) {
+        if (n === 0) {
+          return 1;
+        }
+        let fact = 1;
+        for (i = 1; i <= n; i++) {
+          fact *= i;
+        }
+        return fact;
+      };
+      //Implementando Recursivo
+      const F_Recursivo = function (n) {
+        if (n === 0) {
+          return 1;
+        } else {
+          return n * F_Recursivo(n - 1);
+        }
+      };
+      //output Iterativo y Recursivo
+      console.log("MOSTRANDO FACTORIALES (I): ");
+      console.log(F_Iterativo(30));
+      console.log(F_Iterativo(12));
+      console.log(F_Iterativo(22));
+      console.log("MOSTRANDO FACTORIALES (R): ");
+      console.log(F_Recursivo(11));
+      console.log(F_Recursivo(1));
+      console.log(F_Recursivo(21));
+    
+    </script>
+  </body>
+</html>
+
+
